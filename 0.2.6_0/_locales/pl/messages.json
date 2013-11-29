@@ -1,0 +1,80 @@
+{
+   "contx_info": {
+      "message": "Uruchom ponownie Chrome aby uaktywni\u0107 zmiany"
+   },
+   "desc": {
+      "message": "Masz do\u015B\u0107 czytania? Zaznacz tekst kt\u00F3ry chcesz przeczyta\u0107 i s\u0142uchaj. SpeakIt zamienia tekst na mow\u0119 \u017Ceby\u015B nie musia\u0142(a) wi\u0119cej czyta\u0107."
+   },
+   "lang_contex": {
+      "message": "W\u0142\u0105cz skr\u00F3t SpeakIt w menu kontekstowym"
+   },
+   "lang_donate": {
+      "message": "Z\u0142\u00F3\u017C donacj\u0119"
+   },
+   "lang_engine": {
+      "message": "Silnik zamiany tekstu na mow\u0119"
+   },
+   "lang_enqueue": {
+      "message": "W\u0142\u0105cz tryb kolejkowania"
+   },
+   "lang_error": {
+      "message": "Nic nie s\u0142ycha\u0107? Kliknij tutaj!"
+   },
+   "lang_input": {
+      "message": "Ustawienia wprowadzania mowy"
+   },
+   "lang_keyboard": {
+      "message": "Skr\u00F3t klawiaturowy"
+   },
+   "lang_options": {
+      "message": "SpeakIt - Opcje"
+   },
+   "lang_paypal": {
+      "message": "Donacje PayPal"
+   },
+   "lang_pitch": {
+      "message": "Tonacja mowy"
+   },
+   "lang_playback": {
+      "message": "Ustawienia odtwarzania"
+   },
+   "lang_rate": {
+      "message": "T\u0119po mowy"
+   },
+   "lang_save": {
+      "message": "Zapisz"
+   },
+   "lang_shortcuts": {
+      "message": "Ustawienia skr\u00F3t\u00F3w"
+   },
+   "lang_showpaypal": {
+      "message": "Poka\u017C przycisk donacji PayPal"
+   },
+   "lang_stt": {
+      "message": "W\u0142\u0105cz mo\u017Cliwo\u015B\u0107 zamiany mowy na tekst"
+   },
+   "lang_testing": {
+      "message": "Testuj\u0119"
+   },
+   "lang_testtext": {
+      "message": "To jest testowy tekst dla rozszerzenia Google Chrome o nazwie SpeakIt"
+   },
+   "lang_voices": {
+      "message": "Chcesz inne g\u0142osy?"
+   },
+   "lang_volume": {
+      "message": "Domy\u015Blny poziom g\u0142o\u015Bno\u015Bci"
+   },
+   "lang_wpm": {
+      "message": "s\u0142\u00F3w/minute"
+   },
+   "paypalinfo": {
+      "message": "SpeakIt jest w pe\u0142ni darmowy, ale je\u015Bli si\u0119 Tobie podoba to prosz\u0119 przeka\u017C ma\u0142\u0105 donacje \u017Ceby mi o tym da\u0107 zna\u0107 i \u017Ceby wesprze\u0107 finansowo dalszy rozw\u00F3j projektu. Wszystkie donacje s\u0105 bardzo mile widziane! \u003Cbr/\u003E\u003Cb\u003EDzi\u0119kuj\u0119!\u003C/b\u003E\u003Cdiv id='paypal'\u003E\u003C/div\u003E"
+   },
+   "tip": {
+      "message": "Twoje ustawienia zosta\u0142y pomy\u015Blnie zapisane"
+   },
+   "title": {
+      "message": "Zamie\u0144 tekst na mow\u0119"
+   }
+}

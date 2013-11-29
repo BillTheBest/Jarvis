@@ -1,0 +1,80 @@
+{
+   "contx_info": {
+      "message": "Reiniciar Chrome para que los cambios tengan efecto."
+   },
+   "desc": {
+      "message": "Cansado de leer? Seleccione el texto que desee leer y esc\u00FAchelo. SpeakIt convierte texto en voz para amenizar sus lecturas."
+   },
+   "lang_contex": {
+      "message": "Habilitar Comandos de teclado en men\u00FA SpeakIt."
+   },
+   "lang_donate": {
+      "message": "Hacer una donaci\u00F3n"
+   },
+   "lang_engine": {
+      "message": "Texto a motor de Voz"
+   },
+   "lang_enqueue": {
+      "message": "Permitir modo en cola"
+   },
+   "lang_error": {
+      "message": "No se escucha? Click aqu\u00ED!"
+   },
+   "lang_input": {
+      "message": "Configuraci\u00F3n de Ajustes de Voz"
+   },
+   "lang_keyboard": {
+      "message": "Comandos de teclado"
+   },
+   "lang_options": {
+      "message": "SpeakIt! - Opciones"
+   },
+   "lang_paypal": {
+      "message": "PayPal Donaciones"
+   },
+   "lang_pitch": {
+      "message": "Tono de voz"
+   },
+   "lang_playback": {
+      "message": "Configuraci\u00F3n de reproducci\u00F3n"
+   },
+   "lang_rate": {
+      "message": "Velocidad de Voz"
+   },
+   "lang_save": {
+      "message": "Guardar"
+   },
+   "lang_shortcuts": {
+      "message": "Configuraci\u00F3n de accesos r\u00E1pidos"
+   },
+   "lang_showpaypal": {
+      "message": "Mostrar icono PayPal Donaciones."
+   },
+   "lang_stt": {
+      "message": "Habilitar funci\u00F3n de voz a texto."
+   },
+   "lang_testing": {
+      "message": "Prueba"
+   },
+   "lang_testtext": {
+      "message": "Esto es un texto de prueba  para la extensi\u00F3n SpeakIt de Google Chrome"
+   },
+   "lang_voices": {
+      "message": "Quieres otras voces?"
+   },
+   "lang_volume": {
+      "message": "Nivel de volumen"
+   },
+   "lang_wpm": {
+      "message": "palabras/minuto"
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! es gratu\u00EDto, pero si le gusta y me lo quiere decir,  amablemente puede donar una peque\u00F1a aportaci\u00F3n que adem\u00E1s ayudar\u00E1 al futuro desarrollo del proyecto. \u00A1Cualquier donaci\u00F3n se agradece!\u003Cbr/\u003E\u003Cb\u003E\u00A1Gracias!\u003C/b\u003E\u003Cdiv id='paypal'\u003E\u003C/div\u003E"
+   },
+   "tip": {
+      "message": "Tus configuraciones se han guardado con \u00E9xito."
+   },
+   "title": {
+      "message": "Convertir texto en voz."
+   }
+}

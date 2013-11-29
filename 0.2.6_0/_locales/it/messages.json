@@ -1,0 +1,80 @@
+{
+   "contx_info": {
+      "message": "Riapri Chrome affinch\u00E8 i cambiamenti abbiano luogo."
+   },
+   "desc": {
+      "message": "Stanco di leggere? Selezione il testo che vuoi leggere e ascoltalo. Speaklt converte il testo in parole cosi non hai pi\u00F9 bisogno di leggere."
+   },
+   "lang_contex": {
+      "message": "Abilita il menu dei tasti di scelta rapida di Speaktl."
+   },
+   "lang_donate": {
+      "message": "Fai una donazione"
+   },
+   "lang_engine": {
+      "message": "Motore di cambiamento tra il testo e il parlato"
+   },
+   "lang_enqueue": {
+      "message": "Abilita la modalit\u00E0 in coda"
+   },
+   "lang_error": {
+      "message": "Non riesci a sentire niente? Clicca qui!"
+   },
+   "lang_input": {
+      "message": "Impostazione di Input delle parole"
+   },
+   "lang_keyboard": {
+      "message": "Tasti di scelta rapida"
+   },
+   "lang_options": {
+      "message": "Speaklt!- Opzioni"
+   },
+   "lang_paypal": {
+      "message": "Donazioni Paypal"
+   },
+   "lang_pitch": {
+      "message": "Intonazione del parlare"
+   },
+   "lang_playback": {
+      "message": "Impostazioni della riproduzione"
+   },
+   "lang_rate": {
+      "message": "Modo di parlare"
+   },
+   "lang_save": {
+      "message": "Salva"
+   },
+   "lang_shortcuts": {
+      "message": "Impostazioni dei tasti di scelta rapida"
+   },
+   "lang_showpaypal": {
+      "message": "Mostra i tasti per le donazioni paypal."
+   },
+   "lang_stt": {
+      "message": "Enable Speech to Text feature."
+   },
+   "lang_testing": {
+      "message": "Testing"
+   },
+   "lang_testtext": {
+      "message": "Questa \u00E8 un test del testo per Google Chrome l'estensione \u00E8 chiamata Speaklt"
+   },
+   "lang_voices": {
+      "message": "Vuoi nuove voci?"
+   },
+   "lang_volume": {
+      "message": "Livello del volume"
+   },
+   "lang_wpm": {
+      "message": "parole/minuti"
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! \u00E8 completamente gratis, ma se ti piace dona un piccolo ammontare per farmi sapere che ne pensi e aiutare lo sviluppo futuro del progetto, per favore. Tutte le donazioni saranno gentilmente accettate\u003Cbr/\u003E\u003Cb\u003E Grazie!\u003C/b\u003E\u003Cdiv id='paypal'\u003E\u003C/div\u003E"
+   },
+   "tip": {
+      "message": "Le tue impostazioni sono state salvate con successo."
+   },
+   "title": {
+      "message": "Converti il testo in parole"
+   }
+}

@@ -1,0 +1,80 @@
+{
+   "contx_info": {
+      "message": "Starta om Chrome f\u00F6r f\u00F6r\u00E4ndringar att ta effekt."
+   },
+   "desc": {
+      "message": "Tr\u00F6tt p\u00E5 att l\u00E4sa? V\u00E4lj spr\u00E5ket du vill l\u00E4sa och lyssna p\u00E5. SpeakIt! byter ut text till tal s\u00E5 du inte l\u00E4ngre beh\u00F6ver l\u00E4sa."
+   },
+   "lang_contex": {
+      "message": "Aktivera SpeakIT contex meny genv\u00E4gar"
+   },
+   "lang_donate": {
+      "message": "G\u00F6r en donation"
+   },
+   "lang_engine": {
+      "message": "Text till Tal motor"
+   },
+   "lang_enqueue": {
+      "message": "Aktivera enqueue l\u00E4ge"
+   },
+   "lang_error": {
+      "message": "Kan du inte h\u00F6ra n\u00E5gonting? Klicka h\u00E4r!"
+   },
+   "lang_input": {
+      "message": "Tal ing\u00E5ng inst\u00E4llningar"
+   },
+   "lang_keyboard": {
+      "message": "tagentbord genv\u00E4g"
+   },
+   "lang_options": {
+      "message": "SpeakIt! - Alternativ"
+   },
+   "lang_paypal": {
+      "message": "PayPal donationer"
+   },
+   "lang_pitch": {
+      "message": "Talande Tonh\u00F6jd"
+   },
+   "lang_playback": {
+      "message": "Uppspelnings inst\u00E4llningar"
+   },
+   "lang_rate": {
+      "message": "Talande Takt"
+   },
+   "lang_save": {
+      "message": "Spara"
+   },
+   "lang_shortcuts": {
+      "message": "Genv\u00E4gs inst\u00E4llningar"
+   },
+   "lang_showpaypal": {
+      "message": "Visa PayPal donationer knappen."
+   },
+   "lang_stt": {
+      "message": "Aktivera tal till text funktion."
+   },
+   "lang_testing": {
+      "message": "Testning"
+   },
+   "lang_testtext": {
+      "message": "Detta \u00E4r ett test text f\u00F6r Google Chrome f\u00F6rl\u00E4ngning kallad SpeakIt"
+   },
+   "lang_voices": {
+      "message": "Vill du ha nya r\u00F6ster?"
+   },
+   "lang_volume": {
+      "message": "Standard volym niv\u00E5"
+   },
+   "lang_wpm": {
+      "message": "ord/minut"
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! \u00E4r gratis, men om du gillar det s\u00E5 kan du donera ett litet belopp f\u00F6r att l\u00E5ta mig veta om de och hj\u00E4lpa finansiering utveckling av projektet. All donationer \u00E4r v\u00E4ldigt uppskattade.\u003Cbr/\u003E\u003Cb\u003ETack!\u003C/b\u003E\u003Cdiv id='paypal'\u003E\u003C/div\u003E"
+   },
+   "tip": {
+      "message": "Dina inst\u00E4llningar sparades utan komplikationer."
+   },
+   "title": {
+      "message": "konverterar text till tal"
+   }
+}

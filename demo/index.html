@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>annyang! Easily add speech recognition to your site</title>
+  <meta name="description" content="annyang is a tiny JS that makes adding voice commands to your site super-easy. Let your users control your site with their voice." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta property="og:image" content="https://www.talater.com/annyang/images/icon_speech.png"/>
+  <meta property="og:title" content="annyang! Easily add speech recognition to your site"/>
+  <meta property="og:url" content="https://www.talater.com/annyang/"/>
+  <meta property="og:site_name" content="annyang"/>
+  <script type="text/javascript" src="../annyang.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="../jquery.cookie.js"></script>
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="vendor/css/default.css" />
+  <link rel="stylesheet" href="vendor/css/github.css" />
+</head>
+<body>
+
+
+  <script type="text/javascript">
+
+    function falar(valor){
+
+      // play_sound("http://translate.google.com/translate_tts?ie=UTF-8&q="+encodeURIComponent(txt)+"&tl=en&total=1&idx=0prev=input");   
+
+      $('<iframe id="cckwTTS" name="cckwTTS" style="width:0px; height:0px; border: 0px" src="http://translate.google.com/translate_tts?tl=pt&q='+valor+'&total=1&idx=0prev=input"></iframe>').appendTo('body');
+      console.warn(valor);
+    }
+
+    // falar('Boa noite. Vamos começar?');
+
+
+  "use strict";
+
+  // first we make sure annyang started succesfully
+  if (annyang) {
+
+    // define the functions our commands will run.
+    var hello = function() {
+      $("#hello").slideDown("slow");
+      scrollTo("#section_hello");
+    };
+
+    var showFlickr = function(tag) {
+      $('#flickrGallery').show();
+      $('#flickrLoader p').text('Buscando imagens no Flickr de '+tag).fadeIn('fast');
+      var url = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a828a6571bb4f0ff8890f7a386d61975&sort=interestingness-desc&per_page=9&format=json&callback=jsonFlickrApi&tags='+tag;
+      $.ajax({
+        type: 'GET',
+        url: url,
+        async: false,
+        jsonpCallback: 'jsonFlickrApi',
+        contentType: "application/json",
+        dataType: 'jsonp'
+      });
+      scrollTo("#section_image_search");
+    };
+
+    var Conversar = function(valor) {
+      falar('Quando alguém me perguntar '+ valor + ' Eu respondo o que?');
+      console.warn(valor);
+    };
+
+    var jsonFlickrApi = function(results) {
+      $('#flickrLoader p').fadeOut('slow');
+      var photos = results.photos.photo;
+      $.each(photos, function(index, photo) {
+        $(document.createElement("img"))
+          .attr({ src: '//farm'+photo.farm+'.staticflickr.com/'+photo.server+'/'+photo.id+'_'+photo.secret+'_s.jpg' })
+          .addClass("flickrGallery")
+          .appendTo(flickrGallery);
+      });
+    };
+
+    var showTPS = function(type) {
+      $('#tpsreport').show().animate({
+        bottom: '-100px'
+      }).delay('2000').animate({
+        bottom: '-500px'
+      });
+    };
+
+    var getStarted = function() {
+      window.location.href = 'https://github.com/TalAter/annyang';
+    }
+
+    var Perguntar = function(valor){
+      $.getJSON('jarvis_json.php', {action: 'addPergunta', pergunta: valor}, function(json, textStatus) {
+          /*optional stuff to do after success */
+          var pergunta = json.pergunta;
+          var id_pergunta = json.id_pergunta;
+          $.cookie('pergunta', pergunta);
+          $.cookie('id_pergunta', id_pergunta);
+          $.cookie('status', 1)
+          console.warn(json);
+
+         falar('Quando alguém me perguntar '+ pergunta + ' Eu respondo o que?');
+
+      });
+    }
+
+    var Responda = function(valor){
+      var id_pergunta = $.cookie('id_pergunta');
+      var pergunta    = $.cookie('pergunta');
+      var resposta    = valor;
+
+      if (pergunta != '') {
+         $.getJSON('jarvis_json.php', {action: 'addResposta', resposta: valor, id_pergunta: id_pergunta}, function(json, textStatus) {
+            /*optional stuff to do after success */
+             falar('Entendi. Quando alguém me perguntar: '+ pergunta + '. Eu respondo: ' + resposta);
+             // Limpa Pergunta
+             $.cookie('pergunta','');
+        });
+       } else {
+        falar('Não entendi a sua pergunta. Tente novamente');
+      }
+     
+    }
+
+    var Responder = function(valor){
+      var pergunta = valor;
+      $.cookie('repetir', valor);
+
+      $.getJSON('jarvis_json.php', {action: 'responder', pergunta: pergunta}, function(json, textStatus) {
+          /*optional stuff to do after success */
+          var resposta = json.resposta;
+          falar(resposta);
+      });
+    }
+
+    var ResponderNovamente = function(valor){
+      var pergunta =  $.cookie('repetir');;
+      $.getJSON('jarvis_json.php', {action: 'responder', pergunta: pergunta}, function(json, textStatus) {
+          /*optional stuff to do after success */
+          var resposta = json.resposta;
+          falar(resposta);
+      });
+    }
+
+    var ResponderHoras = function(){
+
+      var momentoAtual = new Date() 
+      var hora = momentoAtual.getHours() 
+      var minuto = momentoAtual.getMinutes() 
+      var segundo = momentoAtual.getSeconds() 
+
+      if(hora < 5)
+      {
+         saudacao = "Boa Noite";
+      }
+      else
+      if(hora < 8)
+      {
+         saudacao = "Bom Dia";
+      }
+      else
+      if(hora < 12)
+      {
+         saudacao = "Bom Dia!";
+      }
+      else
+      if(hora < 18)
+      {
+         saudacao = "Boa tarde";
+      }
+      else
+      {
+         saudacao = "Boa noite, é hora de dormir. ";
+      }
+
+      falar(saudacao + " Agora são " + hora +" horas, " + minuto + " minutos e " + segundo + " segundos")
+    }
+
+    var ReposponderDia = function(){
+      var now = new Date(); 
+      var hours = now.getHours(); 
+      var minutes = now.getMinutes(); 
+      var timeValue = "" + ((hours >12) ? hours -12 :hours) 
+      timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+      timeValue += (hours >= 12) ? " PM" : " AM" 
+      timerRunning = true; 
+
+      mydate = new Date(); 
+      myday = mydate.getDay(); 
+      mymonth = mydate.getMonth(); 
+      myweekday= mydate.getDate(); 
+      weekday= myweekday; 
+      myyear= mydate.getYear(); 
+      year = myyear
+
+      if(myday == 0) 
+      day = " Domingo, " 
+
+      else if(myday == 1) 
+      day = " Segunda, " 
+
+      else if(myday == 2) 
+      day = " Terça, " 
+
+      else if(myday == 3) 
+      day = " Quarta, " 
+
+      else if(myday == 4) 
+      day = " Quinta, " 
+
+      else if(myday == 5) 
+      day = " Sexta, " 
+
+      else if(myday == 6) 
+      day = " Sábado, " 
+
+      if(mymonth == 0) 
+      month = " de Janeiro de " 
+
+      else if(mymonth ==1) 
+      month = " de Fevereiro de " 
+
+      else if(mymonth ==2) 
+      month = " de Março de " 
+
+      else if(mymonth ==3) 
+      month = " de April de " 
+
+      else if(mymonth ==4) 
+      month = " de Maio de "
+
+      else if(mymonth ==5) 
+      month = " de Junho de " 
+
+      else if(mymonth ==6) 
+      month = " de Julho de " 
+
+      else if(mymonth ==7) 
+      month = " de Agosto de " 
+
+      else if(mymonth ==8) 
+      month = " de Setembro de " 
+
+      else if(mymonth ==9) 
+      month = " de Outubro de " 
+
+      else if(mymonth ==10) 
+      month = " de Novembro de " 
+
+      else if(mymonth ==11) 
+      month = " de Dezembro de " 
+
+      falar("Hoje é " + day + myweekday + month + year  ); 
+
+    }
+
+    // define our commands.
+    // * The key is what you want your users to say say.
+    // * The value is the action to do.
+    //   You can pass a function, a function name (as a string), or write your function as part of the commands object.
+    var commands = {
+      'bom dia':        hello,
+      'imagens de *search':      showFlickr,
+      'quando alguém te perguntar *search':  Perguntar,
+      'responda *search':      Responda,
+      'pergunta *search':      Responder,
+      'de novo':      ResponderNovamente,
+      'que horas são':      ResponderHoras,
+      'que dia é hoje':      ReposponderDia,
+      'mostrar :type report':    showTPS,
+      'vamos começar':   getStarted,
+    };
+
+    // OPTIONAL: activate debug mode for detailed logging in the console
+    annyang.debug();
+
+    // Initialize annyang
+    annyang.init(commands);
+
+    // OPTIONAL: Set a language for speech recognition (defaults to English)
+    annyang.setLanguage('pt');
+
+    // Start listening. You can call this here, or attach this call to an event, button, etc.
+    annyang.start();
+  } else {
+    $(document).ready(function() {
+      $('#unsupported').fadeIn('fast');
+    });
+  }
+
+  var scrollTo = function(identifier, speed) {
+    $('html, body').animate({
+        scrollTop: $(identifier).offset().top
+    }, speed || 1000);
+  }
+  </script>
+
+  <section id="section_header">
+    <h1><em>Olá!</em> Bem vindo ao sistema de Inteligencia Artificial Laura</h1>
+    <p>Você pode começar se comunicando, perguntando qual é o seu nome ou ensinando novas perguntas e respostas.</p>
+    <p>Primeiro sistema de aprendizado de novas palavras.</p>
+    <img src="images/icon_user.png">
+    <img src="images/icon_speech.png">
+    <img src="images/icon_js.png">
+  </section>
+  <section id="section_hello">
+    <p><em>Vamos começar, fale:</em></p>
+    <p class="voice_instructions">"Oi!"</p>
+    <p id="hello" class="hidden">Annyang!</p>
+  </section>
+  <section id="section_image_search">
+    <p><em>Vamos fazer algumas buscas? Tente &hellip;</em></p>
+    <p class="voice_instructions">Imagens de "Cachorro"</p>
+    <p class="voice_instructions">Imagens de "Cidades"</p>
+    <!-- <p class="voice_instructions">Now go wild. Say "Show me&hellip;" and make your demands!</p> -->
+    <div id="flickrLoader"><p></p></div>
+    <div id="flickrGallery" class="hidden"></div>
+  </section>
+  <section id="section_biz_use">
+    <p><em>That's cool, but in the real world it's not all kittens and hello world.</em></p>
+    <p class="voice_instructions">No problem, say "Show TPS report"</p>
+    <img src="images/tpscover.jpg" id="tpsreport" class="hidden">
+  </section>
+  <!-- <section id="section_code_sample_1">
+    <p><em>How did you do that?</em></p>
+    <p>Simple. Here is all the code needed to achieve that:</p>
+    <pre><code>&lt;script type="text/javascript" src="<a href="https://github.com/TalAter/annyang/blob/master/annyang.min.js">annyang.min.js</a>"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'show tps report': function() {
+      $('#tpsreport').animate({bottom: '-100px'});
+    }
+  };
+
+  // Initialize annyang with our commands
+  annyang.init(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
+&lt;/script&gt;</code></pre>
+  </section> -->
+  <!-- <section id="section_named_and_splats">
+    <p><em>What about more complicated commands?</em></p>
+    <p>annyang understands commands with <strong>named variables</strong>, <strong>splats</strong>, and <strong>optional words</strong>.</p>
+    <p>Use <strong>named variables</strong> for one word arguments in your command.</p>
+    <p>Use <strong>splats</strong> to capture multi-word text at the end of your command (greedy).</p>
+    <p>Use <strong>optional words or phrases</strong> to define a part of the command as optional.</p>
+    <pre><code>&lt;script type="text/javascript"&gt;
+var commands = {
+  // annyang will capture anything after a splat (*) and pass it to the function.
+  // e.g. saying "Show me Batman and Robin" is the same as calling showFlickr('Batman and Robin');
+  'show me *term': showFlickr,
+
+  // A named variable is a one word variable, that can fit anywhere in your command.
+  // e.g. saying "calculate October stats" will call calculateStats('October');
+  'calculate :month stats': calculateStats,
+
+  // By defining a part of the following command as optional, annyang will respond to both:
+  // "say hello to my little friend" as well as "say hello friend"
+  'say hello (to my little) friend': greeting
+};
+
+var showFlickr = function(term) {
+  var url = 'http://api.flickr.com/services/rest/?tags='+tag;
+  $.getJSON(url);
+}
+
+var calculateStats = function(month) {
+  $('#stats').text('Statistics for '+month);
+}
+
+var greeting = function() {
+  $('#greeting').text('Hello!');
+}
+
+&lt;/script&gt;</code></pre>
+  </section> -->
+  <section id="section_docs">
+    <p><em>Funciona em qualquer Browser?</em></p>
+    <p>Por enquanto só funciona no Google Chrome Browser.</p>
+  </section>
+  <!-- <section id="section_footer">
+    <h2>Ready to get started?</h2>
+    <p>Grab the latest version of <a href="https://github.com/TalAter/annyang">annyang.min.js</a>, drop it in your html, and start adding commands.</p>
+    <p>&hellip;or just say "let's get started!"</p>
+    <div class="social"></div>
+    <div class="comments">
+      <h2>Questions? Comments?</h2>
+      <div class="fb-comments" data-href="https://www.talater.com/annyang/" data-colorscheme="dark" data-width="750"></div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2013 Tal Ater. All rights reserved. The annyang source code is free to use under the <a href="https://raw.github.com/TalAter/annyang/master/LICENSE">MIT license</a>.</p>
+      <p>Tal Ater retains creative control, spin-off rights and theme park approval for Mr. Banana Grabber, Baby Banana Grabber, and any other Banana Grabber family character that might emanate there from.</p>
+    </div>
+  </section> -->
+  <div id="unsupported" class="hidden">
+    <h4>It looks like your browser doesn't support speech recognition.</h4>
+    <p>annyang plays nicely with all browsers, progressively enhancing modern browsers that support the SpeechRecognition standard, while leaving users with older browsers unaffected.</p>
+    <p>Please visit <a href="http://www.annyangjs.com/">http://www.annyangjs.com/</a> in a desktop browser like Chrome.</p>
+  </div>
+
+  <script src="./vendor/js/highlight.pack.js"></script>
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>
