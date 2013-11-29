@@ -1,5 +1,7 @@
-*annyang!*
+*JARVIS!*
 -----------------------------------------------
+
+Sistema de Inteligencia Artificial baseado em comandos por voz
 
 A tiny javascript library that lets your users control your site with voice commands.
 
